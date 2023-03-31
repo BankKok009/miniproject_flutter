@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:my_mini_project/models/product_model.dart';
+import 'package:my_mini_project/states/edit_product.dart';
 import 'package:my_mini_project/utility/my_constant.dart';
 import 'package:my_mini_project/widgets/show_image.dart';
 import 'package:my_mini_project/widgets/show_progress.dart';
@@ -30,6 +31,10 @@ class _ShowProductSellerState extends State<ShowProductSeller> {
   }
 
   Future<Null> loadValueFromAPI() async {
+    if (productModels.length != 0) {
+      productModels.clear();
+    } else {}
+
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String id = preferences.getString('id')!;
 
@@ -85,7 +90,9 @@ class _ShowProductSellerState extends State<ShowProductSeller> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: MyConstant.dark,
         onPressed: () =>
-            Navigator.pushNamed(context, MyConstant.routeAddProduct),
+            Navigator.pushNamed(context, MyConstant.routeAddProduct).then(
+          (value) => loadValueFromAPI(),
+        ),
         child: Text('Add'),
       ),
     );
@@ -148,7 +155,17 @@ class _ShowProductSellerState extends State<ShowProductSeller> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print('## You Click Edit');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EditProduct(
+                                productModel: productModels[index],
+                              ),
+                            ),
+                          );
+                        },
                         icon: Icon(
                           Icons.edit_outlined,
                           size: 36,
@@ -197,7 +214,15 @@ class _ShowProductSellerState extends State<ShowProductSeller> {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () async {
+              print('## Confirm Delete at id == ${productModel.id}');
+              String apiDeleteProductWhereId =
+                  '${MyConstant.domain}/miniprojectmoblie/deleteProductWhereId.php?isAdd=true&id=${productModel.id}';
+              await Dio().get(apiDeleteProductWhereId).then((value) {
+                Navigator.pop(context);
+                loadValueFromAPI();
+              });
+            },
             child: Text('Delete'),
           ),
           TextButton(
