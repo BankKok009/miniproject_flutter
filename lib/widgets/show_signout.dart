@@ -18,7 +18,6 @@ class ShowSignOut extends StatelessWidget {
                   (value) => Navigator.pushNamedAndRemoveUntil(
                       context, MyConstant.routeAuthen, (route) => false),
                 );
-            ;
           },
           tileColor: Colors.red.shade900,
           leading: Icon(

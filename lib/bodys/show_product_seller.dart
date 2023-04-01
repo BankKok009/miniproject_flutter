@@ -164,7 +164,7 @@ class _ShowProductSellerState extends State<ShowProductSeller> {
                                 productModel: productModels[index],
                               ),
                             ),
-                          );
+                          ).then((value) => loadValueFromAPI());
                         },
                         icon: Icon(
                           Icons.edit_outlined,
