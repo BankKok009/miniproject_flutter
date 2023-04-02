@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyConstant {
   // Genernal
   static String appName = 'Shopping Com';
-  static String domain = 'https://1ce9-171-6-107-230.ap.ngrok.io';
+  static String domain = 'https://4a38-171-6-50-27.ap.ngrok.io';
 
   // Route
   static String routeAuthen = '/authen';
@@ -12,6 +12,8 @@ class MyConstant {
   static String routeSelerService = '/selerService';
   static String routeRiderService = '/riderService';
   static String routeAddProduct = '/addProduct';
+  static String routeEditProfileSaler = '/editProfileSaler';
+  static String routeShowCart = '/showCart';
 
   // Image
   static String image1 = 'images/posterShopping1.png';
@@ -56,6 +58,16 @@ class MyConstant {
   TextStyle h2WhiteStyle() => TextStyle(
         fontSize: 18,
         color: Colors.white,
+        fontWeight: FontWeight.w700,
+      );
+  TextStyle h2RedStyle() => TextStyle(
+        fontSize: 18,
+        color: Colors.red.shade700,
+        fontWeight: FontWeight.w700,
+      );
+  TextStyle h2BlueStyle() => TextStyle(
+        fontSize: 18,
+        color: Colors.blue.shade800,
         fontWeight: FontWeight.w700,
       );
   // body ธรรมดา

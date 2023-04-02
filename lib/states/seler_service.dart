@@ -42,9 +42,9 @@ class _SelerServiceState extends State<SelerService> {
       for (var element in json.decode(value.data)) {
         setState(() {
           userModel = UserModel.fromMap(element);
-          widgets.add(const ShowOrderSeller());
+          widgets.add(ShowOrderSeller());
           widgets.add(ShopManageSeller(userModel: userModel!));
-          widgets.add(const ShowProductSeller());
+          widgets.add(ShowProductSeller());
         });
       }
     });
