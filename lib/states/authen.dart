@@ -32,15 +32,18 @@ class _AuthenState extends State<Authen> {
           behavior: HitTestBehavior.opaque,
           child: Form(
             key: formKey,
-            child: ListView(
-              children: [
-                buildImage(size),
-                buildAppName(),
-                buildUser(size),
-                buildPassword(size),
-                buildLogin(size),
-                buildCreateAccount(),
-              ],
+            child: Container(
+              decoration: MyConstant().planBackground(),
+              child: ListView(
+                children: [
+                  buildImage(size),
+                  buildAppName(),
+                  buildUser(size),
+                  buildPassword(size),
+                  buildLogin(size),
+                  buildCreateAccount(),
+                ],
+              ),
             ),
           ),
         ),
@@ -59,7 +62,9 @@ class _AuthenState extends State<Authen> {
         TextButton(
           onPressed: () =>
               Navigator.pushNamed(context, MyConstant.routeCreateAccount),
-          child: Text('Create Accunt'),
+          child: ShowTitle(
+            title: 'Create Acount',
+          ),
         ),
       ],
     );
@@ -154,6 +159,8 @@ class _AuthenState extends State<Authen> {
               }
             },
             decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white.withOpacity(0.75),
               labelStyle: MyConstant().h3Style(),
               labelText: 'User : ',
               prefixIcon: Icon(
@@ -193,6 +200,8 @@ class _AuthenState extends State<Authen> {
             },
             obscureText: statusRedEye,
             decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white.withOpacity(0.75),
               suffixIcon: IconButton(
                 onPressed: () {
                   setState(() {

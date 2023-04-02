@@ -18,6 +18,7 @@ class MyConstant {
   static String routeEditProfileSaler = '/editProfileSaler';
   static String routeShowCart = '/showCart';
   static String routeAddWallet = '/addWallet';
+  static String routeConfirmAddWallet = '/confirmAddwallet';
 
   // Image
   static String image1 = 'images/posterShopping1.png';
@@ -26,7 +27,6 @@ class MyConstant {
   static String image4 = 'images/posterShopping4.png';
   static String avatar = 'images/avatar.png';
   static String imageIcon = 'images/imageIcon.png';
-
   //
   static Map<int, Color> mapMaterialColor = {
     50: Color.fromRGBO(255, 191, 228, 0.1),
@@ -45,6 +45,11 @@ class MyConstant {
   static Color primary = Color(0xff558B2F);
   static Color dark = Color(0xff33691E);
   static Color light = Color(0xffbfe46a);
+
+  //Background
+  BoxDecoration planBackground() =>
+      BoxDecoration(color: MyConstant.light.withOpacity(0.5));
+  BoxDecoration whiteBackground() => BoxDecoration(color: Colors.white);
 
   // Style
   // ตัวใหญ่

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_mini_project/utility/my_constant.dart';
 import 'package:my_mini_project/utility/my_dialog.dart';
+import 'package:my_mini_project/widgets/nav_confirm_add_wallet.dart';
 import 'package:my_mini_project/widgets/show_progress.dart';
 import 'package:my_mini_project/widgets/show_title.dart';
 
@@ -28,6 +29,7 @@ class _PrompayState extends State<Prompay> {
           ],
         ),
       ),
+      floatingActionButton: NavConfirmAddWallet(),
     );
   }
 

@@ -313,9 +313,14 @@ class _ShowCartState extends State<ShowCart> {
   Padding showSeller() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: ShowTitle(
-        title: userModel == null ? '' : userModel!.name,
-        textStyle: MyConstant().h1Style(),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ShowTitle(
+            title: userModel == null ? '' : userModel!.name,
+            textStyle: MyConstant().h1Style(),
+          ),
+        ],
       ),
     );
   }

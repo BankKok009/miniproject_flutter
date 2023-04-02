@@ -156,7 +156,7 @@ class _ShowProductSellerState extends State<ShowProductSeller> {
                     children: [
                       IconButton(
                         onPressed: () {
-                          print('## You Click Edit');
+                          // print('## You Click Edit');
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -174,7 +174,7 @@ class _ShowProductSellerState extends State<ShowProductSeller> {
                       ),
                       IconButton(
                         onPressed: () {
-                          print('## You Click Delete From index = $index');
+                          // print('## You Click Delete From index = $index');
                           confirmDialogDelete(productModels[index]);
                         },
                         icon: Icon(

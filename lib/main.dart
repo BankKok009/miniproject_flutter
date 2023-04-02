@@ -5,6 +5,7 @@ import 'package:my_mini_project/states/add_product.dart';
 import 'package:my_mini_project/states/add_wallet.dart';
 import 'package:my_mini_project/states/authen.dart';
 import 'package:my_mini_project/states/buyer_service.dart';
+import 'package:my_mini_project/states/confirm_add_wallet.dart';
 import 'package:my_mini_project/states/create_account.dart';
 import 'package:my_mini_project/states/edit_profile_saler.dart';
 import 'package:my_mini_project/states/rider_service.dart';
@@ -23,6 +24,7 @@ final Map<String, WidgetBuilder> map = {
   '/editProfileSaler': (BuildContext context) => EditProfileSaler(),
   '/showCart': (BuildContext context) => ShowCart(),
   '/addWallet': (BuildContext context) => AddWallet(),
+  '/confirmAddwallet': (BuildContext context) => ConfirmAddWallet(),
 };
 
 String? initlalRounte;

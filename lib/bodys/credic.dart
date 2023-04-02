@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:my_mini_project/utility/my_constant.dart';
 import 'package:my_mini_project/utility/my_dialog.dart';
 import 'package:my_mini_project/widgets/show_title.dart';
 import 'package:omise_flutter/omise_flutter.dart';
+import 'package:http/http.dart' as http;
 
 class Credic extends StatefulWidget {
   const Credic({super.key});
@@ -91,12 +94,38 @@ class _CredicState extends State<Credic> {
     await omiseFlutter.token
         .create(
             '$name $surname', idCard!, expiryDateMouth!, expiryDateYear!, cvc!)
-        .then((value) {
+        .then((value) async {
       String token = value.id.toString();
       print('token ==> $token');
 
       String secretkey = MyConstant.secretKey;
-      String urlAPI = '';
+      String urlAPI = 'https://api.omise.co/charges';
+      String basicAuth = 'Basic ' + base64Encode(utf8.encode(secretkey + ":"));
+
+      Map<String, String> headerMap = {};
+      headerMap['authorization'] = basicAuth;
+      headerMap['Cache-Control'] = 'no-cache';
+      headerMap['Centent-Type'] = 'application/x-www-form-urlencoded';
+
+      String zero = '00';
+      amount = '$amount$zero';
+
+      Map<String, dynamic> data = {};
+      data['amount'] = amount;
+      data['currency'] = 'thb';
+      data['card'] = token;
+      Uri uri = Uri.parse(urlAPI);
+
+      http.Response response = await http.post(
+        uri,
+        headers: headerMap,
+        body: data,
+      );
+
+      var resultCharge = json.decode(response.body);
+      print('resultCharge = $resultCharge');
+      print('status ของการตัดบัตร ==> ${resultCharge['status']}');
+      //
     }).catchError((value) {
       String title = value.code;
       String message = value.message;
@@ -111,6 +140,7 @@ class _CredicState extends State<Credic> {
             if (value!.isEmpty) {
               return 'Please fill Amount in Blank';
             } else {
+              amount = value.trim();
               return null;
             }
           },
