@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_mini_project/states/add_product.dart';
+import 'package:my_mini_project/states/add_wallet.dart';
 import 'package:my_mini_project/states/authen.dart';
 import 'package:my_mini_project/states/buyer_service.dart';
 import 'package:my_mini_project/states/create_account.dart';
@@ -21,6 +22,7 @@ final Map<String, WidgetBuilder> map = {
   '/addProduct': (BuildContext context) => AddProduct(),
   '/editProfileSaler': (BuildContext context) => EditProfileSaler(),
   '/showCart': (BuildContext context) => ShowCart(),
+  '/addWallet': (BuildContext context) => AddWallet(),
 };
 
 String? initlalRounte;

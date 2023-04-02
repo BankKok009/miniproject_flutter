@@ -14,6 +14,7 @@ class MyConstant {
   static String routeAddProduct = '/addProduct';
   static String routeEditProfileSaler = '/editProfileSaler';
   static String routeShowCart = '/showCart';
+  static String routeAddWallet = '/addWallet';
 
   // Image
   static String image1 = 'images/posterShopping1.png';
@@ -38,9 +39,9 @@ class MyConstant {
   };
 
   // Color
-  static Color primary = Color(0xff83e46a);
-  static Color dark = Color(0xffbfe46a);
-  static Color light = Color(0xff6ae48f);
+  static Color primary = Color(0xff558B2F);
+  static Color dark = Color(0xff33691E);
+  static Color light = Color(0xffbfe46a);
 
   // Style
   // ตัวใหญ่
