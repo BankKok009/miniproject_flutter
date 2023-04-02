@@ -23,14 +23,27 @@ class _PrompayState extends State<Prompay> {
           children: [
             buildTitle(),
             buildCopyPrompay(),
-            Container(
-              child: CachedNetworkImage(
-                imageUrl: 'https://promptpay.io/0987654321.png',
-                placeholder: (context, url) => ShowProgress(),
-              ),
-            ),
+            buildQRcodePrompay(),
+            buildDownloadQRcode()
           ],
         ),
+      ),
+    );
+  }
+
+  ElevatedButton buildDownloadQRcode() => ElevatedButton(
+        onPressed: () async {
+          //https://promptpay.io/0987654321.png
+        },
+        child: Text('Download QRcode'),
+      );
+
+  Container buildQRcodePrompay() {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 8),
+      child: CachedNetworkImage(
+        imageUrl: MyConstant.urlPrompay,
+        placeholder: (context, url) => ShowProgress(),
       ),
     );
   }
