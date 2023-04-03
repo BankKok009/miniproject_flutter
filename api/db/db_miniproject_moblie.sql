@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2023 at 10:35 AM
+-- Generation Time: Apr 03, 2023 at 02:55 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -73,6 +73,29 @@ INSERT INTO `user` (`id`, `name`, `type`, `address`, `phone`, `user`, `password`
 (4, 'Shop C', 'seller', 'Shop address', '3333333333', 'C', '1234', '/miniprojectmoblie/avatar/avatar30980.jpg'),
 (5, 'shop D', 'seller', 'shop address', '3333333333', 'D', '1234', '/miniprojectmoblie/avatar/avatar5427.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wallet`
+--
+
+CREATE TABLE `wallet` (
+  `id` int(11) NOT NULL,
+  `idBuyer` text COLLATE utf8_unicode_ci NOT NULL,
+  `datePay` text COLLATE utf8_unicode_ci NOT NULL,
+  `money` text COLLATE utf8_unicode_ci NOT NULL,
+  `pathSlip` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `wallet`
+--
+
+INSERT INTO `wallet` (`id`, `idBuyer`, `datePay`, `money`, `pathSlip`, `status`) VALUES
+(1, '3', '03/04/2023 01:36', '1000', '/slip/slip19479.jpg', 'WaitOrder'),
+(2, '3', '03/04/2023 02:07', '200', '/slip/slip80786.jpg', 'WaitOrder');
+
 --
 -- Indexes for dumped tables
 --
@@ -90,6 +113,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `wallet`
+--
+ALTER TABLE `wallet`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -104,6 +133,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `wallet`
+--
+ALTER TABLE `wallet`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
